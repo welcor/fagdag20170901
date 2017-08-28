@@ -1,5 +1,7 @@
 package no.bekk.fagdag.server;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.boot.SpringApplication;
@@ -21,6 +23,7 @@ public class ServerApplication {
 		System.out.println("Config is starting.");
 		ObjectMapper objectMapper = builder.createXmlMapper(false).build();
 		objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+		objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 		return objectMapper;
 	}
 }
