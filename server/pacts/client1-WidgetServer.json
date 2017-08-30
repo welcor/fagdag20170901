@@ -1,0 +1,85 @@
+{
+    "provider": {
+        "name": "WidgetServer"
+    },
+    "consumer": {
+        "name": "client1"
+    },
+    "interactions": [
+        {
+            "description": "Fetch of widgets",
+            "request": {
+                "method": "GET",
+                "path": "/widgets"
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "Content-Type": "application/json; charset=UTF-8"
+                },
+                "body": [
+                    {
+                        "purpose": "Being demoed",
+                        "name": "foo",
+                        "detail": "A splendid foo, indeed"
+                    },
+                    {
+                        "purpose": "Being demoed",
+                        "name": "foo",
+                        "detail": "A splendid foo, indeed"
+                    },
+                    {
+                        "purpose": "Being demoed",
+                        "name": "foo",
+                        "detail": "A splendid foo, indeed"
+                    }
+                ],
+                "matchingRules": {
+                    "body": {
+                        "$": {
+                            "matchers": [
+                                {
+                                    "match": "type",
+                                    "min": 3
+                                }
+                            ],
+                            "combine": "AND"
+                        },
+                        "$[*].name": {
+                            "matchers": [
+                                {
+                                    "match": "type"
+                                }
+                            ],
+                            "combine": "AND"
+                        },
+                        "$[*].detail": {
+                            "matchers": [
+                                {
+                                    "match": "type"
+                                }
+                            ],
+                            "combine": "AND"
+                        },
+                        "$[*].purpose": {
+                            "matchers": [
+                                {
+                                    "match": "type"
+                                }
+                            ],
+                            "combine": "AND"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "metadata": {
+        "pact-specification": {
+            "version": "3.0.0"
+        },
+        "pact-jvm": {
+            "version": "3.5.3"
+        }
+    }
+}

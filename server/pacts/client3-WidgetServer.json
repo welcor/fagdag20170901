@@ -1,0 +1,86 @@
+{
+    "provider": {
+        "name": "WidgetServer"
+    },
+    "consumer": {
+        "name": "client3"
+    },
+    "interactions": [
+        {
+            "description": "Fetch of widgets",
+            "request": {
+                "method": "GET",
+                "path": "/widgets"
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "Content-Type": "application/json; charset=UTF-8"
+                },
+                "body": [
+                    {
+                        "purpose": "Being demoed",
+                        "name": "foo",
+                        "creationDate": "2017-08-31"
+                    },
+                    {
+                        "purpose": "Being demoed",
+                        "name": "foo",
+                        "creationDate": "2017-08-31"
+                    },
+                    {
+                        "purpose": "Being demoed",
+                        "name": "foo",
+                        "creationDate": "2017-08-31"
+                    }
+                ],
+                "matchingRules": {
+                    "body": {
+                        "$": {
+                            "matchers": [
+                                {
+                                    "match": "type",
+                                    "min": 3
+                                }
+                            ],
+                            "combine": "AND"
+                        },
+                        "$[*].name": {
+                            "matchers": [
+                                {
+                                    "match": "type"
+                                }
+                            ],
+                            "combine": "AND"
+                        },
+                        "$[*].purpose": {
+                            "matchers": [
+                                {
+                                    "match": "type"
+                                }
+                            ],
+                            "combine": "AND"
+                        },
+                        "$[*].creationDate": {
+                            "matchers": [
+                                {
+                                    "match": "regex",
+                                    "regex": "\\d\\d\\d\\d-\\d\\d-\\d\\d"
+                                }
+                            ],
+                            "combine": "AND"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "metadata": {
+        "pact-specification": {
+            "version": "3.0.0"
+        },
+        "pact-jvm": {
+            "version": "3.5.3"
+        }
+    }
+}
