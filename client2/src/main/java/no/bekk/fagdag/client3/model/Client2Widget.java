@@ -1,7 +1,8 @@
-package no.bekk.fagdag.client2.model;
+package no.bekk.fagdag.client3.model;
 
 import lombok.Builder;
 import lombok.ToString;
+import lombok.Value;
 
 import java.time.LocalDate;
 
@@ -15,6 +16,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
  */
 @Builder
 @ToString
+@Value
 public class Client2Widget {
     private String name;
     private String detail;

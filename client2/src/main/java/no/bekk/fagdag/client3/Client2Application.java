@@ -1,6 +1,6 @@
-package no.bekk.fagdag.client2;
+package no.bekk.fagdag.client3;
 
-import no.bekk.fagdag.client2.client.WidgetRestClient2;
+import no.bekk.fagdag.client3.client.WidgetRestClient2;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

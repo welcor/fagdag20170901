@@ -1,6 +1,6 @@
-package no.bekk.fagdag.client2.client;
+package no.bekk.fagdag.client3.client;
 
-import no.bekk.fagdag.client2.model.Client2Widget;
+import no.bekk.fagdag.client3.model.Client2Widget;
 
 import java.util.List;
 
