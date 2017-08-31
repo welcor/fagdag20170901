@@ -63,11 +63,10 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <pactBrokerUrl/>
+                    <pactBrokerUrl>http://172.17.0.2</pactBrokerUrl>
                     <serviceProviders>
                         <serviceProvider>
                             <name>WidgetServer</name>
-                            <pactFileDirectory>${project.basedir}/pacts</pactFileDirectory>
                         </serviceProvider>
                     </serviceProviders>
                 </configuration>

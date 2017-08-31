@@ -116,18 +116,30 @@
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.18</version>
-                    <configuration>
-                        <systemPropertyVariables>
-                            <pact.rootDir>${pact.rootDir}</pact.rootDir>
-                        </systemPropertyVariables>
-                    </configuration>
+                    <groupId>com.github.warmuuh</groupId>
+                    <artifactId>pactbroker-maven-plugin</artifactId>
+                    <version>0.0.10</version>
+                    <executions>
+                        <execution>
+                            <id>upload-pacts</id>
+                            <phase>test</phase>
+                            <goals><goal>upload-pacts</goal></goals>
+                            <configuration>
+                                <brokerUrl>http://172.17.0.2</brokerUrl>
+                                <pacts>${project.build.directory}/pacts</pacts>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
+
     </build>
 
-
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
